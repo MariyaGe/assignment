@@ -9,7 +9,7 @@ function App() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -19,7 +19,7 @@ function App() {
           const forecast = await getForecastData(city);
           setWeatherData(weather);
           setForecastData(forecast);
-          setError(null); // Reset error
+          setError(""); // Reset error
         } catch (err) {
           setError("City not found or API error.");
         }

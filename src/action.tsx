@@ -4,8 +4,10 @@ const API_BASE_URL = "https://openweathermap.org/";
 
 export const getWeatherData = async (city: any, apiKey?: any) => {
   try {
-    const response = await fetch(API_BASE_URL);
-    return response;
+    const response = await await axios.get(
+      `${API_BASE_URL}/forecast?q=${city}&units=metric`
+    );
+    return response.data;
   } catch (error) {
     throw error;
   }
